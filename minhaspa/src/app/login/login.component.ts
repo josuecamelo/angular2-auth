@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'login',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  user = {
+    email: '',
+    password: ''
+  };
 
-  constructor() { }
+  constructor(private http:Http) { }
 
   ngOnInit() {
   }
 
+  login(){
+    this.http
+        .post('http://localhost:8000/api/login', this.user).toPromise()
+        .then(response =>console.log(response));
+  }
 }
