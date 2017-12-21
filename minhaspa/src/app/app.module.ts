@@ -9,6 +9,7 @@ import routing from './app.routing'; //importanto rotas
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import {LocalStorageService} from "./services/local-storage.service";
 
 @NgModule({
   declarations: [
@@ -23,10 +24,9 @@ import { LoginComponent } from './login/login.component';
     AlertModule.forRoot(),
     routing
   ],
-  providers: [],
+  providers: [
+    LocalStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-//window.localStorage.setItem('teste', 'angular2'); //não recomendado
