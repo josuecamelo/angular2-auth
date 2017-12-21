@@ -17,14 +17,14 @@ export class LoginComponent implements OnInit {
   constructor(private http:Http, private localStorage: LocalStorageService) {
     this.localStorage.set('nome', 'Josué').set('curso', 'angular 2');
 
-    console.log(this.localStorage.get('nome'));
+    /*console.log(this.localStorage.get('nome'));
     console.log(this.localStorage.get('curso'));
     console.log(this.localStorage.get('nada'));
     this.localStorage.setObject('obj', {nome: 'Josué', idade: 31});
     console.log(window.localStorage.getItem('obj1'));
     console.log(this.localStorage.getObject('obj1'));
 
-    this.localStorage.remove('nome').remove('curso');
+    this.localStorage.remove('nome').remove('curso');*/
   }
 
   ngOnInit() {
