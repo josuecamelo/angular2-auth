@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { AlertModule } from 'ng2-bootstrap';
 
+import routing from './app.routing'; //importanto rotas
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
@@ -18,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     Ng2BootstrapModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
