@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Http, RequestOptions, Headers} from "@angular/http";
-import {JwtTokenService} from "../../services/jwt-token.service";
+//import {JwtTokenService} from "../../services/jwt-token.service";
 import 'rxjs/add/operator/toPromise';
 import {AuthService} from "../../services/auth.service";
+import {DefaultRequestOptionsService} from "../../services/default-request-options.service";
 
 @Component({
   selector: 'app-product-list',
@@ -12,9 +13,9 @@ import {AuthService} from "../../services/auth.service";
 export class ProductListComponent implements OnInit {
   products:Array<Object> = [];
 
-  constructor(private http:Http, private jwtToken:JwtTokenService,
-              private auth: AuthService){
-    console.log(this.auth.check);
+  //constructor(private http:Http, private jwtToken:JwtTokenService,
+  constructor(private http:Http, private auth: AuthService, private requestOptions:DefaultRequestOptionsService){
+    //console.log(this.auth.check);
   }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts(){
-      let requestOptions = new RequestOptions();
+      /*let requestOptions = new RequestOptions();
 
       requestOptions.headers = new Headers();
       requestOptions.headers.set('Authorization', `Bearer ${this.jwtToken.token}`);
@@ -31,6 +32,11 @@ export class ProductListComponent implements OnInit {
       this.http
           .get('http://localhost:8000/api/products', requestOptions)
           .toPromise()
-          .then(response => this.products = response.json())
+          .then(response => this.products = response.json())*/
+    //refatorada
+    this.http
+        .get('http://localhost:8000/api/products', this.requestOptions.merge(new RequestOptions()))
+        .toPromise()
+        .then(response => this.products = response.json());
   }
 }
