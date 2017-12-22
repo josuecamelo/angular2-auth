@@ -15,6 +15,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import {AuthService} from "./services/auth.service";
 import {AuthGuardRouterService} from "./services/auth-guard-router.service";
 import { MenuComponent } from './menu/menu.component';
+import { LogoutComponent } from './logout/logout/logout.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MenuComponent } from './menu/menu.component';
     AppComponent,
     LoginComponent,
     ProductListComponent,
-    MenuComponent
+    MenuComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
