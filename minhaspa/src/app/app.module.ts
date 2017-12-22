@@ -13,6 +13,7 @@ import {LocalStorageService} from "./services/local-storage.service";
 import {JwtTokenService} from "./services/jwt-token.service";
 import { ProductListComponent } from './products/product-list/product-list.component';
 import {AuthService} from "./services/auth.service";
+import {AuthGuardRouterService} from "./services/auth-guard-router.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {AuthService} from "./services/auth.service";
   providers: [
     LocalStorageService,
     JwtTokenService,
-    AuthService
+    AuthService,
+    AuthGuardRouterService
   ],
   bootstrap: [AppComponent]
 })
