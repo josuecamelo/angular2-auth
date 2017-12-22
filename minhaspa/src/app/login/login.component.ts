@@ -39,12 +39,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.auth.check = true;
+    /*this.auth.check = true;
     this.http
         .post('http://localhost:8000/api/login', this.user).toPromise()
         .then(response => {
           this.jwtToken.token = response.json().token;
           this.router.navigate(this.redirectAfterLogin);
-        });
+        });*/
+
+    this.auth.login(this.user).then(response => {
+      this.router.navigate(this.redirectAfterLogin)
+    });
   }
 }
