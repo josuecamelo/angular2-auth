@@ -4,11 +4,17 @@
 import {Routes, RouterModule} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
 import {ModuleWithProviders} from "@angular/core";
+import {ProductListComponent} from "./products/product-list/product-list.component";
 
 const appRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'products/list',
+        component: ProductListComponent,
+        //canActivate: [AuthGuardRouterService]
     },
     {
         path: '',
