@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 //import {LocalStorageService} from "../services/local-storage.service";
 import {JwtTokenService} from "../services/jwt-token.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   redirectAfterLogin = ['/products/list'];
 
   //constructor(private http:Http, private localStorage: LocalStorageService) {
-  constructor(private http:Http, private jwtToken:JwtTokenService, private router: Router) {
+  constructor(private http:Http, private jwtToken:JwtTokenService, private router: Router,
+  private auth:AuthService) {
     //this.localStorage.set('nome', 'Josué').set('curso', 'angular 2');
 
     /*console.log(this.localStorage.get('nome'));
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.auth.check = true;
     this.http
         .post('http://localhost:8000/api/login', this.user).toPromise()
         .then(response => {
