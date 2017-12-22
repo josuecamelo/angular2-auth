@@ -20,7 +20,7 @@ class AuthController extends Controller
         }
 
         if (!$token) {
-            return response()->json(['error' => 'invalid_credentials'], 400);
+            return response()->json(['error' => 'invalid_credentials'], 400); //para crendencial invalida
         }
 
         return response()->json(compact('token'));
