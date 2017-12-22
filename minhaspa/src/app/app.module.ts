@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import {LocalStorageService} from "./services/local-storage.service";
 import {JwtTokenService} from "./services/jwt-token.service";
 import { ProductListComponent } from './products/product-list/product-list.component';
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductListComponent } from './products/product-list/product-list.compo
   ],
   providers: [
     LocalStorageService,
-    JwtTokenService
+    JwtTokenService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
