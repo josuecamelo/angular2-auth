@@ -17,4 +17,9 @@ export class AuthService {
     this.check = this.jwtToken.token ? true : false;
   }
 
+  logout() {
+    this.jwtToken.token = null;
+    this.check = false;
+    //this.localStorage.remove(USER_KEY); ///const USER_KEY = 'user';
+  }
 }
