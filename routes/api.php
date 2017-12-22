@@ -30,6 +30,8 @@ Route::group(['middleware' => 'cors'], function () {
         });
     });
     Route::post('login', 'Api\AuthController@login');
+
+    //para atualizar o token
     Route::post('refresh_token', function(){
         try {
             $token = JWTAuth::parseToken()->refresh();
