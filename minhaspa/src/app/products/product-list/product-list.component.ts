@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
+import {JwtTokenService} from "../../services/jwt-token.service";
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-product-list',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  products:Array<Object> = [];
 
-  constructor() { }
+  constructor(private http:Http, private jwtToken:JwtTokenService) { }
 
   ngOnInit() {
+    this.getProducts();
   }
 
+  getProducts(){
+      this.http
+          .get('http://localhost:8000/api/products')
+          .toPromise()
+          .then(response => this.products = response.json())
+  }
 }
