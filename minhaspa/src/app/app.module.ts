@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, TemplateRef} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import {Ng2BootstrapModule} from 'ng2-bootstrap';
 import { AlertModule } from 'ng2-bootstrap';
 
 import routing from './app.routing'; //importanto rotas
@@ -15,6 +15,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import {AuthService} from "./services/auth.service";
 import {AuthGuardRouterService} from "./services/auth-guard-router.service";
 import { MenuComponent } from './menu/menu.component';
+
 
 @NgModule({
   declarations: [
